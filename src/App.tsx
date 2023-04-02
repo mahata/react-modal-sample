@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Modal from "./Modal";
 
 function App() {
+  const [modal, setModal] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button
+        onClick={() => setModal(true)}
+      >モーダル表示</button>
+      <Modal
+        modal={modal}
+        setModal={setModal}
+      >
+        <p>こんにちは。Children です。</p>
+      </Modal>
     </div>
   );
 }
